@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cafe Aroma Demo</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo-box">
+<img src="logo.png" alt="Cafe Aroma Logo">
+<h1>Cafe Aroma</h1>
+</div>
+
+<nav>
+<a href="#menu">Menu</a>
+<a href="#booking">Booking</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h2>Delicious Food & Beverages</h2>
+
+<p>Fresh • Tasty • Hygienic</p>
+
+<a href="#menu" class="btn">Order Now</a>
+
+</section>
+
+<!-- MENU -->
+
+<section id="menu" class="menu-section">
+
+<h2>Our Menu</h2>
+
+<div class="menu-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" alt="Pizza">
+<div class="card-content">
+<h3>Cheese Pizza</h3>
+<p>Loaded with cheese & toppings</p>
+<div class="price">₹299</div>
+<button onclick="addToCart('Cheese Pizza',299)">Add to Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop" alt="Burger">
+<div class="card-content">
+<h3>Classic Burger</h3>
+<p>Juicy burger with crispy fries</p>
+<div class="price">₹199</div>
+<button onclick="addToCart('Classic Burger',199)">Add to Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=1200&auto=format&fit=crop" alt="Pasta">
+<div class="card-content">
+<h3>White Sauce Pasta</h3>
+<p>Creamy delicious pasta</p>
+<div class="price">₹249</div>
+<button onclick="addToCart('White Sauce Pasta',249)">Add to Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop" alt="Coffee">
+<div class="card-content">
+<h3>Cold Coffee</h3>
+<p>Refreshing chilled coffee</p>
+<div class="price">₹120</div>
+<button onclick="addToCart('Cold Coffee',120)">Add to Cart</button>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- DIGITAL BILL -->
+
+<section class="bill-section">
+
+<h2>Your Digital Bill</h2>
+
+<div id="bill"></div>
+
+<h3 id="total">Total: ₹0</h3>
+
+<button class="whatsapp-btn" onclick="sendOrder()">
+Send Order on WhatsApp
+</button>
+
+</section>
+
+<!-- TABLE BOOKING -->
+
+<section id="booking" class="booking">
+
+<h2>Table Booking</h2>
+
+<p>Reserve your table instantly.</p>
+
+<a class="btn"
+href="https://wa.me/917633801161?text=Hello%20I%20want%20to%20book%20a%20table">
+Book Table
+</a>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h2>Contact Us</h2>
+
+<p>📞 +91 7633801161</p>
+
+<p>📍 Ranchi, Jharkhand</p>
+
+<div class="social-links">
+
+<a target="_blank"
+href="https://instagram.com">
+Instagram
+</a>
+
+<a target="_blank"
+href="https://maps.google.com">
+Google Map
+</a>
+
+</div>
+
+</section>
+
+<!-- FLOATING CART -->
+
+<div class="cart-floating" onclick="sendOrder()">
+🛒 Cart
+</div>
+
+<footer>
+
+<p>
+© 2026 Cafe Aroma Demo | Powered by TeraSyncTech
+</p>
+
+</footer>
+
+<script>
+
+let cart = [];
+
+function addToCart(item, price){
+
+const existing = cart.find(p => p.item === item);
+
+if(existing){
+existing.qty++;
+}
+else{
+cart.push({
+item,
+price,
+qty:1
+});
+}
+
+updateBill();
+
+}
+
+function updateBill(){
+
+const bill = document.getElementById("bill");
+
+bill.innerHTML = "";
+
+let total = 0;
+
+cart.forEach(product => {
+
+const line = document.createElement("p");
+
+line.innerHTML =
+`${product.item} x ${product.qty} = ₹${product.price * product.qty}`;
+
+bill.appendChild(line);
+
+total += product.price * product.qty;
+
+});
+
+document.getElementById("total").innerHTML =
+`Total: ₹${total}`;
+
+}
+
+function sendOrder(){
+
+if(cart.length === 0){
+alert("Cart is empty");
+return;
+}
+
+let message =
+"Hello Cafe Aroma,%0A%0AI want to order:%0A";
+
+let total = 0;
+
+cart.forEach(product => {
+
+const lineTotal = product.price * product.qty;
+
+message +=
+`${product.item} x ${product.qty} = ₹${lineTotal}%0A`;
+
+total += lineTotal;
+
+});
+
+message += `%0ATotal Bill: ₹${total}`;
+
+window.open(
+`https://wa.me/917633801161?text=${message}`,
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+</html>

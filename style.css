@@ -88,32 +88,41 @@ nav a:hover{
   position:relative;
   height:100vh;
   overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.hero video{
+.hero-bg{
+  position:absolute;
   width:100%;
   height:100%;
   object-fit:cover;
+  z-index:0;
 }
 
-.hero::after{
-  content:"";
+.hero video{
   position:absolute;
-  top:0;
-  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+  opacity:0.45;
+}
+
+.hero-overlay{
+  position:absolute;
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.55);
+  z-index:2;
 }
 
 .hero-content{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
+  position:relative;
+  z-index:3;
   text-align:center;
   color:white;
-  z-index:2;
   width:90%;
 }
 
@@ -156,6 +165,39 @@ nav a:hover{
 .btn:hover{
   transform:scale(1.07);
   background:#ffd166;
+}
+
+/* COUNTER */
+
+.counter-section{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  padding:70px 30px;
+  background:#fff;
+}
+
+.counter-box{
+  background:#111;
+  color:white;
+  padding:40px 20px;
+  border-radius:20px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.counter-box:hover{
+  transform:translateY(-10px);
+}
+
+.counter-box h2{
+  font-size:50px;
+  color:#ffb703;
+  margin-bottom:10px;
+}
+
+.counter-box p{
+  font-size:22px;
 }
 
 /* MENU */
@@ -235,6 +277,19 @@ nav a:hover{
   color:black;
 }
 
+/* GALLERY */
+
+.gallery-section{
+  background:#fff;
+  padding:90px 30px;
+}
+
+.gallery-section h2{
+  text-align:center;
+  font-size:50px;
+  margin-bottom:50px;
+}
+
 /* BILL */
 
 .bill-section{
@@ -304,40 +359,6 @@ nav a:hover{
   margin-bottom:35px;
 }
 
-/* INSTAGRAM */
-
-.instagram-section{
-  background:white;
-  padding:80px 20px;
-  text-align:center;
-}
-
-.instagram-section h2{
-  font-size:48px;
-  margin-bottom:30px;
-}
-
-.instagram-section p{
-  font-size:22px;
-  margin-bottom:25px;
-}
-
-.insta-btn{
-  display:inline-block;
-  background:#E1306C;
-  color:white;
-  padding:16px 35px;
-  border-radius:14px;
-  text-decoration:none;
-  font-size:22px;
-  font-weight:bold;
-  transition:0.3s;
-}
-
-.insta-btn:hover{
-  transform:scale(1.05);
-}
-
 /* CONTACT */
 
 .contact{
@@ -377,7 +398,7 @@ nav a:hover{
   transform:scale(1.05);
 }
 
-/* FLOATING BUTTONS */
+/* FLOATING */
 
 .whatsapp-float{
   position:fixed;
@@ -471,7 +492,8 @@ nav a{
 .menu-section h2,
 .contact h2,
 .booking h2,
-.bill-section h2{
+.bill-section h2,
+.gallery-section h2{
   font-size:38px;
 }
 
@@ -487,8 +509,7 @@ nav a{
   font-size:24px;
 }
 
-.booking p,
-.instagram-section p{
+.booking p{
   font-size:18px;
 }
 
@@ -500,14 +521,21 @@ nav a{
   font-size:28px;
 }
 
-.whatsapp-btn,
-.insta-btn{
+.whatsapp-btn{
   font-size:18px;
 }
 
 .cart-floating{
   font-size:20px;
   padding:14px 24px;
+}
+
+.counter-box h2{
+  font-size:36px;
+}
+
+.counter-box p{
+  font-size:18px;
 }
 
 }

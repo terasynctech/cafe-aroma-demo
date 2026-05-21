@@ -1,14 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Cafe Aroma Demo</title>
 
-<link rel="stylesheet" href="style.css">
+<!-- SEO -->
+
+<meta name="description"
+content="Cafe Aroma Demo - Digital Restaurant Menu with WhatsApp Ordering">
+
+<meta name="keywords"
+content="Cafe, Restaurant, Digital Menu, Ranchi Cafe, WhatsApp Order">
+
+<meta name="author"
+content="TeraSyncTech">
+
+<!-- OPEN GRAPH -->
+
+<meta property="og:title"
+content="Cafe Aroma Demo">
+
+<meta property="og:description"
+content="Modern Digital Restaurant Menu with WhatsApp Ordering">
+
+<meta property="og:image"
+content="https://terasynctech.github.io/restaurant-menu-card/logo.png">
+
+<meta property="og:url"
+content="https://terasynctech.github.io/restaurant-menu-card/">
+
+<meta property="og:type"
+content="website">
+
+<!-- TWITTER -->
+
+<meta name="twitter:card"
+content="summary_large_image">
+
+<meta name="twitter:title"
+content="Cafe Aroma Demo">
+
+<meta name="twitter:description"
+content="Modern Digital Restaurant Menu">
+
+<meta name="twitter:image"
+content="https://terasynctech.github.io/restaurant-menu-card/logo.png">
+
+<!-- WEBSITE ICON -->
+
+<link rel="icon"
+type="image/png"
+href="logo.png">
+
+<!-- CSS -->
+
+<link rel="stylesheet"
+href="style.css">
 
 </head>
+
 <body>
 
 <!-- HEADER -->
@@ -16,76 +72,162 @@
 <header>
 
 <div class="logo-box">
-<img src="logo.png" alt="Cafe Aroma Logo">
+
+<img src="logo.png"
+alt="Cafe Aroma Logo">
+
 <h1>Cafe Aroma</h1>
+
 </div>
 
 <nav>
+
 <a href="#menu">Menu</a>
+
 <a href="#booking">Booking</a>
+
 <a href="#contact">Contact</a>
+
 </nav>
 
 </header>
 
-<!-- HERO -->
+<!-- OFFER -->
+
+<div class="offer-bar">
+
+🔥 Flat 20% OFF on Orders Above ₹499
+
+</div>
+
+<!-- HERO VIDEO -->
 
 <section class="hero">
 
-<h2>Delicious Food & Beverages</h2>
+<video autoplay muted loop playsinline>
 
-<p>Fresh • Tasty • Hygienic</p>
+<source
+src="https://cdn.coverr.co/videos/coverr-making-coffee-1560081420877?download=1080p"
+type="video/mp4">
 
-<a href="#menu" class="btn">Order Now</a>
+</video>
+
+<div class="hero-content">
+
+<h2>Premium Cafe Experience</h2>
+
+<p>Fresh • Trendy • Delicious</p>
+
+<a href="#menu"
+class="btn">
+
+Order Now
+
+</a>
+
+</div>
 
 </section>
 
 <!-- MENU -->
 
-<section id="menu" class="menu-section">
+<section id="menu"
+class="menu-section">
 
-<h2>Our Menu</h2>
+<h2>Popular Menu</h2>
 
 <div class="menu-grid">
 
+<!-- ITEM -->
+
 <div class="card">
-<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" alt="Pizza">
+
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop"
+alt="Pizza">
+
 <div class="card-content">
+
 <h3>Cheese Pizza</h3>
+
 <p>Loaded with cheese & toppings</p>
+
 <div class="price">₹299</div>
-<button onclick="addToCart('Cheese Pizza',299)">Add to Cart</button>
-</div>
+
+<button onclick="addToCart('Cheese Pizza',299)">
+Add To Cart
+</button>
+
 </div>
 
+</div>
+
+<!-- ITEM -->
+
 <div class="card">
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop" alt="Burger">
+
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop"
+alt="Burger">
+
 <div class="card-content">
+
 <h3>Classic Burger</h3>
+
 <p>Juicy burger with crispy fries</p>
+
 <div class="price">₹199</div>
-<button onclick="addToCart('Classic Burger',199)">Add to Cart</button>
-</div>
+
+<button onclick="addToCart('Classic Burger',199)">
+Add To Cart
+</button>
+
 </div>
 
+</div>
+
+<!-- ITEM -->
+
 <div class="card">
-<img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=1200&auto=format&fit=crop" alt="Pasta">
+
+<img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=1200&auto=format&fit=crop"
+alt="Pasta">
+
 <div class="card-content">
+
 <h3>White Sauce Pasta</h3>
+
 <p>Creamy delicious pasta</p>
+
 <div class="price">₹249</div>
-<button onclick="addToCart('White Sauce Pasta',249)">Add to Cart</button>
-</div>
+
+<button onclick="addToCart('White Sauce Pasta',249)">
+Add To Cart
+</button>
+
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop" alt="Coffee">
-<div class="card-content">
-<h3>Cold Coffee</h3>
-<p>Refreshing chilled coffee</p>
-<div class="price">₹120</div>
-<button onclick="addToCart('Cold Coffee',120)">Add to Cart</button>
 </div>
+
+<!-- ITEM -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop"
+alt="Coffee">
+
+<div class="card-content">
+
+<h3>Cold Coffee</h3>
+
+<p>Refreshing chilled coffee</p>
+
+<div class="price">₹120</div>
+
+<button onclick="addToCart('Cold Coffee',120)">
+Add To Cart
+</button>
+
+</div>
+
 </div>
 
 </div>
@@ -100,32 +242,58 @@
 
 <div id="bill"></div>
 
-<h3 id="total">Total: ₹0</h3>
+<h3 id="total">
+Total: ₹0
+</h3>
 
-<button class="whatsapp-btn" onclick="sendOrder()">
-Send Order on WhatsApp
+<button class="whatsapp-btn"
+onclick="sendOrder()">
+
+Send Order On WhatsApp
+
 </button>
 
 </section>
 
 <!-- TABLE BOOKING -->
 
-<section id="booking" class="booking">
+<section id="booking"
+class="booking">
 
-<h2>Table Booking</h2>
+<h2>Reserve Your Table</h2>
 
-<p>Reserve your table instantly.</p>
+<p>Book your premium cafe experience instantly.</p>
 
 <a class="btn"
+target="_blank"
 href="https://wa.me/917633801161?text=Hello%20I%20want%20to%20book%20a%20table">
+
 Book Table
+
+</a>
+
+</section>
+
+<!-- INSTAGRAM -->
+
+<section class="instagram-section">
+
+<h2>Follow Us On Instagram</h2>
+
+<a href="https://instagram.com"
+target="_blank"
+class="insta-btn">
+
+Instagram
+
 </a>
 
 </section>
 
 <!-- CONTACT -->
 
-<section id="contact" class="contact">
+<section id="contact"
+class="contact">
 
 <h2>Contact Us</h2>
 
@@ -136,32 +304,56 @@ Book Table
 <div class="social-links">
 
 <a target="_blank"
-href="https://instagram.com">
-Instagram
+href="https://maps.google.com">
+
+Google Map
+
 </a>
 
 <a target="_blank"
-href="https://maps.google.com">
-Google Map
+href="https://instagram.com">
+
+Instagram
+
 </a>
 
 </div>
 
 </section>
 
+<!-- FLOATING WHATSAPP -->
+
+<a href="https://wa.me/917633801161"
+target="_blank"
+class="whatsapp-float">
+
+💬
+
+</a>
+
 <!-- FLOATING CART -->
 
-<div class="cart-floating" onclick="sendOrder()">
+<div class="cart-floating"
+onclick="sendOrder()">
+
 🛒 Cart
+
 </div>
+
+<!-- FOOTER -->
 
 <footer>
 
 <p>
-© 2026 Cafe Aroma Demo | Powered by TeraSyncTech
+
+© 2026 Cafe Aroma Demo |
+Powered by TeraSyncTech
+
 </p>
 
 </footer>
+
+<!-- SCRIPT -->
 
 <script>
 
@@ -169,17 +361,21 @@ let cart = [];
 
 function addToCart(item, price){
 
-const existing = cart.find(p => p.item === item);
+const existing =
+cart.find(p => p.item === item);
 
 if(existing){
+
 existing.qty++;
-}
-else{
+
+}else{
+
 cart.push({
 item,
 price,
 qty:1
 });
+
 }
 
 updateBill();
@@ -188,7 +384,8 @@ updateBill();
 
 function updateBill(){
 
-const bill = document.getElementById("bill");
+const bill =
+document.getElementById("bill");
 
 bill.innerHTML = "";
 
@@ -196,18 +393,21 @@ let total = 0;
 
 cart.forEach(product => {
 
-const line = document.createElement("p");
+const line =
+document.createElement("p");
 
 line.innerHTML =
 `${product.item} x ${product.qty} = ₹${product.price * product.qty}`;
 
 bill.appendChild(line);
 
-total += product.price * product.qty;
+total +=
+product.price * product.qty;
 
 });
 
-document.getElementById("total").innerHTML =
+document.getElementById("total")
+.innerHTML =
 `Total: ₹${total}`;
 
 }
@@ -215,8 +415,11 @@ document.getElementById("total").innerHTML =
 function sendOrder(){
 
 if(cart.length === 0){
+
 alert("Cart is empty");
+
 return;
+
 }
 
 let message =
@@ -226,7 +429,8 @@ let total = 0;
 
 cart.forEach(product => {
 
-const lineTotal = product.price * product.qty;
+const lineTotal =
+product.price * product.qty;
 
 message +=
 `${product.item} x ${product.qty} = ₹${lineTotal}%0A`;
@@ -235,7 +439,8 @@ total += lineTotal;
 
 });
 
-message += `%0ATotal Bill: ₹${total}`;
+message +=
+`%0ATotal Bill: ₹${total}`;
 
 window.open(
 `https://wa.me/917633801161?text=${message}`,

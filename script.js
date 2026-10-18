@@ -13,31 +13,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const get = (id) => document.getElementById(id);
 
-  // Add items to cart
-  document.querySelectorAll("[data-name][data-price]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const name = button.dataset.name;
-      const price = Number(button.dataset.price);
+  // Event delegation supports both the original cards and database-rendered cards.
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-name][data-price]");
+    if (!button) return;
 
-      if (!name || !Number.isFinite(price) || price < 0) return;
+    const name = button.dataset.name;
+    const price = Number(button.dataset.price);
+    if (!name || !Number.isFinite(price) || price < 0) return;
 
-      const existing = cart.find((item) => item.name === name);
+    const existing = cart.find((item) => item.name === name);
+    if (existing) existing.quantity += 1;
+    else cart.push({ name, price, quantity: 1 });
 
-      if (existing) {
-        existing.quantity += 1;
-      } else {
-        cart.push({ name, price, quantity: 1 });
-      }
-
-      renderCart();
-
-      const originalText = button.textContent;
-      button.textContent = "Added ✓";
-
-      setTimeout(() => {
-        button.textContent = originalText;
-      }, 900);
-    });
+    renderCart();
+    const originalText = button.textContent;
+    button.textContent = "Added ✓";
+    setTimeout(() => { button.textContent = originalText; }, 900);
   });
 
   function renderCart() {
@@ -137,16 +129,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const button = event.target.closest("button");
       if (!button) return;
 
-      const category = button.dataset.category || "all";
+      const category = button.dataset.category || "All";
 
       filterContainer.querySelectorAll("button").forEach((filter) => {
         filter.classList.toggle("active", filter === button);
       });
 
-      document.querySelectorAll("#menuGrid .menu-card").forEach((card) => {
-        const cardCategory = card.dataset.category || "all";
+      document.querySelectorAll("#menuGrid .product-card").forEach((card) => {
+        const cardCategory = card.dataset.category || "Food";
         card.hidden =
-          category !== "all" && cardCategory !== category;
+          category !== "All" && cardCategory !== category;
       });
     });
   }

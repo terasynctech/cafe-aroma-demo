@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#28170f">
+  <title>Cafe Aroma | Owner Dashboard</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="../js/supabase-config.js" defer></script>
+  <script src="admin.js" defer></script>
+</head>
+<body class="admin-body">
+  <header class="admin-topbar">
+    <a class="admin-brand" href="../index.html">☕ Cafe <b>Aroma</b> <span>OWNER PANEL</span></a>
+    <div class="admin-top-actions">
+      <a class="admin-link" href="../index.html" target="_blank" rel="noopener">View website ↗</a>
+      <button id="logoutBtn" class="admin-button admin-button-light" hidden>Log out</button>
+    </div>
+  </header>
+
+  <main class="admin-wrap">
+    <section id="configNotice" class="admin-notice" hidden>
+      <h2>Connect your database first</h2>
+      <p>Open <code>js/supabase-config.js</code> and add your Supabase Project URL and publishable/anon key. Then run <code>supabase/schema.sql</code> in the Supabase SQL Editor.</p>
+    </section>
+
+    <section id="loginPanel" class="admin-panel login-panel">
+      <span class="admin-eyebrow">CAFE AROMA MANAGEMENT</span>
+      <h1>Welcome back</h1>
+      <p>Sign in to manage your café menu.</p>
+      <form id="loginForm">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="username" required placeholder="owner@example.com">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Your password">
+        <button class="admin-button admin-button-primary" type="submit">Sign in</button>
+      </form>
+      <p id="loginMessage" class="admin-message" role="status"></p>
+      <small>Owner accounts should be created in Supabase Authentication by the project administrator.</small>
+    </section>
+
+    <section id="dashboardPanel" hidden>
+      <div class="admin-heading">
+        <div><span class="admin-eyebrow">YOUR BUSINESS</span><h1 id="cafeTitle">Menu management</h1><p>Keep your online menu fresh and up to date.</p></div>
+        <button id="addItemBtn" class="admin-button admin-button-primary">＋ Add menu item</button>
+      </div>
+      <div class="admin-stats">
+        <article><span>Total menu items</span><strong id="totalCount">0</strong></article>
+        <article><span>Available</span><strong id="availableCount">0</strong></article>
+        <article><span>Sold out / hidden</span><strong id="unavailableCount">0</strong></article>
+      </div>
+      <div class="admin-toolbar">
+        <input id="searchItems" type="search" placeholder="Search menu items…" aria-label="Search menu items">
+        <select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option></select>
+      </div>
+      <div id="dashboardMessage" class="admin-message" role="status"></div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Item</th><th>Category</th><th>Price</th><th>Published</th><th>Available</th><th>Actions</th></tr></thead>
+          <tbody id="itemsTable"><tr><td colspan="6">Loading menu…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="itemDialog" class="item-dialog">
+    <form id="itemForm">
+      <div class="dialog-heading"><div><span class="admin-eyebrow">MENU EDITOR</span><h2 id="dialogTitle">Add menu item</h2></div><button type="button" id="closeDialog" class="close-dialog" aria-label="Close">×</button></div>
+      <input type="hidden" id="itemId">
+      <label for="itemName">Item name *</label><input id="itemName" maxlength="100" required>
+      <label for="itemCategory">Category *</label>
+      <select id="itemCategory" required><option>Coffee</option><option>Food</option><option>Desserts</option><option>Cold Drinks</option><option>Other</option></select>
+      <label for="itemPrice">Price (₹) *</label><input id="itemPrice" type="number" min="0.01" max="100000" step="0.01" required>
+      <label for="itemDescription">Description</label><textarea id="itemDescription" rows="3" maxlength="500"></textarea>
+      <label for="itemBadge">Small label (optional)</label><input id="itemBadge" maxlength="40" placeholder="BESTSELLER">
+      <label for="itemImage">Menu photo</label><input id="itemImage" type="file" accept="image/png,image/jpeg,image/webp">
+      <small>Use a JPG, PNG or WebP image up to 5 MB.</small>
+      <div class="dialog-checks"><label><input id="itemPublished" type="checkbox" checked> Show on website</label><label><input id="itemAvailable" type="checkbox" checked> Available to order</label></div>
+      <p id="formMessage" class="admin-message" role="status"></p>
+      <div class="dialog-actions"><button type="button" id="cancelDialog" class="admin-button admin-button-light">Cancel</button><button id="saveItemBtn" type="submit" class="admin-button admin-button-primary">Save item</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
